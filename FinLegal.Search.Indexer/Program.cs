@@ -11,9 +11,11 @@ using FinLegal.Search.Shared.OpenSearch;
 using MassTransit;
 
 var builder = Host.CreateApplicationBuilder(args);
+
 builder.Configuration.AddEnvFile();
 
 var configurationManager = builder.Configuration;
+
 builder.Configuration.AddSecrets(configurationManager);
 
 builder.Services.AddMassTransit(x =>

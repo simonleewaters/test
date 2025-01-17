@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-FinLegal.SearchIndexer-73d8fac5-b3e3-4d1f-8205-627bfe3e8764</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.0.78" />
+        <PackageReference Include="MassTransit.AmazonSQS" Version="8.3.4" />
+        <PackageReference Include="MySql.Data" Version="9.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FinLegal.Hosting\FinLegal.Hosting.csproj" />
+      <ProjectReference Include="..\FinLegal.Search.Shared\FinLegal.Search.Shared.csproj" />
+      <ProjectReference Include="..\FinLegal.Search\FinLegal.Search.csproj" />
+    </ItemGroup>
+</Project>

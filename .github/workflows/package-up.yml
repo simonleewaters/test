@@ -23,4 +23,5 @@ jobs:
                 name: sdk-build-output
                 path: ./FinLegal.Search/publish                
             - name: NuGet Push
+              working-directory: FinLegal.Search/publish
               run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/simonleewaters/index.json"

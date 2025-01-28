@@ -1,30 +1,26 @@
-name: SDK CD Pipeline
+name: Nuget schnizz
 on: workflow_dispatch
 
 jobs:
     build-main:
-        env:
-          GIT_TAG: ${{ inputs.ENV }}
         name: Build Sdk
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
               with:
-                fetch-depth: 0
-                  
+                fetch-depth: 0                  
             - name: Set up .NET
               uses: actions/setup-dotnet@v4
               with:
                   dotnet-version: "9.0"
-
             - name: Build
               working-directory: FinLegal.Search
-              run: dotnet pack --output ./build --configuration Release /p:Version=${{ env.GIT_TAG }}
-              
+              run: dotnet pack --output ./publish --configuration Release             
             - name: Upload SDK Artifact
               uses: actions/upload-artifact@v4
               with:
                 name: sdk-build-output
-                path: ./src/build
-            
+                path: ./FinLegal.Search/publish                
+            - name: NuGet Push
+              run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/simonleewaters/index.json"

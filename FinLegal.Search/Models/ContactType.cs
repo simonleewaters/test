@@ -3,5 +3,6 @@
 public enum ContactType
 {
     Individual = 0,
-    Organization = 1
+    Organization = 1,
+    SummatElse = 2,
 }

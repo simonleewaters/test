@@ -7,8 +7,6 @@ jobs:
           GIT_TAG: ${{ inputs.ENV }}
         name: Build Sdk
         runs-on: ubuntu-latest
-        outputs:
-          version: ${{ steps.semver-outputs.outputs.version }}
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4

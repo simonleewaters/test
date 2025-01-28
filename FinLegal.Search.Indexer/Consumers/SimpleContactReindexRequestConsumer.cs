@@ -4,9 +4,9 @@ using MassTransit;
 
 namespace FinLegal.Search.Indexer.Consumers;
 
-public class SimpleContactReindexRequestConsumer(ILogger<SimpleContactReindexRequestConsumer> logger, IContactSearchIndexer contactSearchIndexer) : IConsumer<SimpleContactReindexRequest>
+public class SimpleContactReindexRequestConsumer(ILogger<SimpleContactReindexRequestConsumer> logger, IContactSearchIndexer contactSearchIndexer) : IConsumer<SimpleContactFullIndexRequest>
 {
-    public async Task Consume(ConsumeContext<SimpleContactReindexRequest> context)
+    public async Task Consume(ConsumeContext<SimpleContactFullIndexRequest> context)
     {
         switch (context.Message.Type)
         {

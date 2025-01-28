@@ -66,11 +66,11 @@ public class BasicContactSearch(ISendEndpointProvider sendEndpointProvider, IOpe
 
         if (companyId.HasValue)
         {
-            await sendEndpoint.Send(new SimpleContactReindexRequest { Type = ReindexType.Single, CompanyId = companyId });
+            await sendEndpoint.Send(new SimpleContactFullIndexRequest { Type = ReindexType.Single, CompanyId = companyId });
         }
         else
         {
-            await sendEndpoint.Send(new SimpleContactReindexRequest { Type = ReindexType.Global });
+            await sendEndpoint.Send(new SimpleContactFullIndexRequest { Type = ReindexType.Global });
         }
     }
 
@@ -78,7 +78,7 @@ public class BasicContactSearch(ISendEndpointProvider sendEndpointProvider, IOpe
     {
         var sendEndpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:search-reindex"));
         
-        await sendEndpoint.Send(new SimpleContactReindexRequest { Type = ReindexType.Parity });
+        await sendEndpoint.Send(new SimpleContactFullIndexRequest { Type = ReindexType.Parity });
     }
 
     public async Task SingleIndex(Guid entityId)

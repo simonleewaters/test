@@ -8,7 +8,6 @@
         <MinVerTagPrefix>v</MinVerTagPrefix>
         <MinVerMinimumMajorMinor>1.0</MinVerMinimumMajorMinor>
         <MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
-        <RepositoryUrl>https://github.com/simonleewaters/test</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="MinVer" Version="6.0.0">
